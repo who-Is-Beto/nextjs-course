@@ -8,7 +8,7 @@ const HomePage = () => {
   const getAvocado = async (): Promise<void> => {
     fetch('/api/avo')
       .then((res) => res.json())
-      .then(({ data, lenght }) => setProducts(data))
+      .then(({ data }) => setProducts(data))
   }
 
   useEffect((): void => {
