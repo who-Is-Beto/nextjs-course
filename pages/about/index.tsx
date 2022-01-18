@@ -1,10 +1,8 @@
 import React from 'react'
-import Navbar from '../../components/Navbar/Navbar'
 
-const AboutPage = () => {
+const AboutPage: React.FC = (): React.ReactElement => {
   return (
     <section>
-      <Navbar />
       <h1>Sobre los aguacates</h1>
     </section>
   )
