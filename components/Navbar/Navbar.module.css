@@ -1,0 +1,26 @@
+.navbar {
+  background-color: var(--primary);
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar__item {
+  text-decoration: none;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 700;
+  height: inherit;
+  display: flex;
+  align-items: center;
+}

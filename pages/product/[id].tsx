@@ -35,7 +35,7 @@ const ProductPage = (): React.ReactElement => {
   return (
     <section>
       <h1>Página producto: {product.name}</h1>
-      <p>Página producto: {product.sku}</p>
+      <p>precio producto: {product.price}</p>
     </section>
   )
 }
