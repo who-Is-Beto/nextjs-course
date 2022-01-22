@@ -3,15 +3,12 @@ import Link from 'next/link'
 
 export default function Navbar() {
   return (
-    <nav>
-      <menu>
+    <header className="navbar">
+      <nav className="navbar__container">
         <Link href="/">
-          <a>Home</a>
+          <a className="navbar__item">Home</a>
         </Link>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </menu>
-    </nav>
+      </nav>
+    </header>
   )
 }
