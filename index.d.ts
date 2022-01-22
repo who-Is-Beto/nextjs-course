@@ -32,3 +32,12 @@ type TAPIAvoResponse = {
   data: TProduct[]
   error?: string
 }
+
+type TAction = {
+  type: string
+  payload?: unknown
+}
+
+type TChildren = {
+  children: JSX.Element
+}
