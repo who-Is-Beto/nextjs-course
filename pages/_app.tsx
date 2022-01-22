@@ -1,14 +1,19 @@
-import { AppProps } from 'next/app'
+import React from 'react'
 import Layout from '@components/Layout/Layout'
+import StoreProvider from '../store/StoreProvider'
+import { AppProps } from 'next/app'
+import './index.css'
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
   // Purspose: - context/providers, Themes, data
-  //LayoutComponents
+  // https://github.com/LayoutComponents
   // additional props
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <StoreProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </StoreProvider>
   )
 }
 

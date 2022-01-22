@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+}
+
+:root {
+  --primary: #c0d8c0;
+  --secondary: #f5eedc;
+  --tertiary: #dd4a48;
+  --quaternary: #ecb390;
+  --text: #2e2f2e;
+}

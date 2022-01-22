@@ -1,17 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
+import Styles from './Navbar.module.css'
 
 export default function Navbar() {
   return (
-    <nav>
-      <menu>
+    <header className={Styles.navbar}>
+      <nav className={Styles.navbar__container}>
         <Link href="/">
-          <a>Home</a>
+          <a className={Styles.navbar__item}>Home</a>
         </Link>
-        <Link href="/about">
-          <a>About</a>
+
+        <Link href="/cart">
+          <a className={Styles.navbar__item}>cart</a>
         </Link>
-      </menu>
-    </nav>
+      </nav>
+    </header>
   )
 }
