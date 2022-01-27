@@ -4,25 +4,29 @@ import { StoreContext } from 'store/StoreProvider'
 import Link from 'next/link'
 import ProductCard from '@components/ProductCard/ProductCard'
 
-const ProductList: React.FC = (): React.ReactElement => {
-  const [store, dispatch] = useContext(StoreContext)
-  const { products } = store
+type Props = {
+  productList: TProduct[]
+}
 
-  const getAvocado = async (): Promise<void> => {
-    fetch('/api/avo')
-      .then((res: Response) => res.json())
-      .then(({ data }): void =>
-        dispatch({ type: ActionTypes.FETCH_ALL_DATA, payload: data })
-      )
-      .catch((): void => alert('Error fetching data :c'))
-  }
+const ProductList: React.FC<Props> = ({ productList }): React.ReactElement => {
+  // const [store, dispatch] = useContext(StoreContext)
+  // const { products } = store
 
-  useEffect((): void => {
-    getAvocado()
-  }, [])
+  // const getAvocado = async (): Promise<void> => {
+  //   fetch('/api/avo')
+  //     .then((res: Response) => res.json())
+  //     .then(({ data }): void =>
+  //       dispatch({ type: ActionTypes.FETCH_ALL_DATA, payload: data })
+  //     )
+  //     .catch((): void => alert('Error fetching data :c'))
+  // }
+
+  // useEffect((): void => {
+  //   getAvocado()
+  // }, [])
   return (
     <>
-      {products.map(
+      {productList.map(
         (product: TProduct): JSX.Element => (
           <ProductCard key={product.id} {...product} />
         )

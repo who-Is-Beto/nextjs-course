@@ -8,7 +8,7 @@ const ProductCard = ({
   id,
 }: TProduct): React.ReactElement => {
   return (
-    <Link href={'/product/[key]'} as={`/product/${id}`} passHref>
+    <Link href={`/product/${id}`} passHref>
       <a>
         <div>
           <h1>{name}</h1>
