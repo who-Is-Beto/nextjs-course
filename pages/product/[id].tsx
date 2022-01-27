@@ -1,37 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import React from 'react'
+import { GetStaticProps } from 'next'
 
-const ProductPage = (): React.ReactElement => {
-  const [product, setProduct] = useState<TProduct>({
-    id: '',
-    name: '',
-    sku: '',
-    price: 0,
-    image: '',
-    attributes: {
-      description: '',
-      shape: '',
-      hardiness: '',
-      taste: '',
+export const getStaticPaths = async () => {
+  const response = await fetch('http://localhost:3000/api/avo')
+  const { data: productList }: TAPIAvoResponse = await response.json()
+
+  const paths = productList.map(({ id }) => ({
+    params: {
+      id,
     },
-  })
-  const BASE_API = 'http://localhost:3000/api/details/'
-  const {
-    query: { id },
-  } = useRouter()
+  }))
 
-  const getAvocado = async (): Promise<void> => {
-    await fetch(`${BASE_API}${id}`)
-      .then((res) => res.json())
-      .then(({ data }) => setProduct(data))
+  return {
+    paths,
+    // Incremental static generation
+    // 404 for everything else
+    fallback: false,
   }
+}
 
-  useEffect((): void => {
-    if (id) {
-      getAvocado()
-    }
-  }, [id])
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const id = params?.id as string
+  const response = await fetch(`http://localhost:3000/api/details/${id}`)
+  type Response = {
+    data: TProduct
+  }
+  const product: Response = await response.json()
+  const { data } = product
+  return {
+    props: {
+      product: data,
+    },
+  }
+}
 
+const ProductPage = ({ product }: { product: TProduct }) => {
   return (
     <section>
       <h1>Página producto: {product.name}</h1>
